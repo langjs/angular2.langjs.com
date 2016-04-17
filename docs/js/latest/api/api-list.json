@@ -1,0 +1,2371 @@
+{
+  "angular2/animate" : [
+    {
+      "title": "Animation",
+      "path": "animate/Animation-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "AnimationBuilder",
+      "path": "animate/AnimationBuilder-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "BrowserDetails",
+      "path": "animate/BrowserDetails-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CssAnimationBuilder",
+      "path": "animate/CssAnimationBuilder-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CssAnimationOptions",
+      "path": "animate/CssAnimationOptions-class.html",
+      "docType": "class"
+    }
+  ],
+
+  "angular2/common" : [
+    {
+      "title": "AbstractControl",
+      "path": "common/AbstractControl-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "AbstractControlDirective",
+      "path": "common/AbstractControlDirective-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "AsyncPipe",
+      "path": "common/AsyncPipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "COMMON_DIRECTIVES",
+      "path": "common/COMMON_DIRECTIVES-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "COMMON_PIPES",
+      "path": "common/COMMON_PIPES-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "CORE_DIRECTIVES",
+      "path": "common/CORE_DIRECTIVES-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "CheckboxControlValueAccessor",
+      "path": "common/CheckboxControlValueAccessor-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "Control",
+      "path": "common/Control-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ControlArray",
+      "path": "common/ControlArray-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ControlContainer",
+      "path": "common/ControlContainer-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ControlGroup",
+      "path": "common/ControlGroup-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ControlValueAccessor",
+      "path": "common/ControlValueAccessor-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "CurrencyPipe",
+      "path": "common/CurrencyPipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "DatePipe",
+      "path": "common/DatePipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "DecimalPipe",
+      "path": "common/DecimalPipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "DefaultValueAccessor",
+      "path": "common/DefaultValueAccessor-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "FORM_BINDINGS",
+      "path": "common/FORM_BINDINGS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "FORM_DIRECTIVES",
+      "path": "common/FORM_DIRECTIVES-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "FORM_PROVIDERS",
+      "path": "common/FORM_PROVIDERS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "Form",
+      "path": "common/Form-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "FormBuilder",
+      "path": "common/FormBuilder-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "I18nPluralPipe",
+      "path": "common/I18nPluralPipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "I18nSelectPipe",
+      "path": "common/I18nSelectPipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "JsonPipe",
+      "path": "common/JsonPipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "LowerCasePipe",
+      "path": "common/LowerCasePipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "MaxLengthValidator",
+      "path": "common/MaxLengthValidator-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "MinLengthValidator",
+      "path": "common/MinLengthValidator-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NG_ASYNC_VALIDATORS",
+      "path": "common/NG_ASYNC_VALIDATORS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "NG_VALIDATORS",
+      "path": "common/NG_VALIDATORS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "NG_VALUE_ACCESSOR",
+      "path": "common/NG_VALUE_ACCESSOR-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "NgClass",
+      "path": "common/NgClass-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgControl",
+      "path": "common/NgControl-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "NgControlGroup",
+      "path": "common/NgControlGroup-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgControlName",
+      "path": "common/NgControlName-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgControlStatus",
+      "path": "common/NgControlStatus-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgFor",
+      "path": "common/NgFor-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgForm",
+      "path": "common/NgForm-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgFormControl",
+      "path": "common/NgFormControl-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgFormModel",
+      "path": "common/NgFormModel-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgIf",
+      "path": "common/NgIf-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgLocalization",
+      "path": "common/NgLocalization-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "NgModel",
+      "path": "common/NgModel-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgPlural",
+      "path": "common/NgPlural-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgPluralCase",
+      "path": "common/NgPluralCase-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgSelectOption",
+      "path": "common/NgSelectOption-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgStyle",
+      "path": "common/NgStyle-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgSwitch",
+      "path": "common/NgSwitch-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgSwitchDefault",
+      "path": "common/NgSwitchDefault-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NgSwitchWhen",
+      "path": "common/NgSwitchWhen-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "NumberPipe",
+      "path": "common/NumberPipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "PatternValidator",
+      "path": "common/PatternValidator-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "PercentPipe",
+      "path": "common/PercentPipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "RadioButtonState",
+      "path": "common/RadioButtonState-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ReplacePipe",
+      "path": "common/ReplacePipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "RequiredValidator",
+      "path": "common/RequiredValidator-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "SelectControlValueAccessor",
+      "path": "common/SelectControlValueAccessor-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "SlicePipe",
+      "path": "common/SlicePipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "UpperCasePipe",
+      "path": "common/UpperCasePipe-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Validator",
+      "path": "common/Validator-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "Validators",
+      "path": "common/Validators-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "workaround_empty_observable_list_diff",
+      "path": "common/workaround_empty_observable_list_diff-var.html",
+      "docType": "var"
+    }
+  ],
+
+  "angular2/compiler" : [
+    {
+      "title": "AttrAst",
+      "path": "compiler/AttrAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "BoundDirectivePropertyAst",
+      "path": "compiler/BoundDirectivePropertyAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "BoundElementPropertyAst",
+      "path": "compiler/BoundElementPropertyAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "BoundEventAst",
+      "path": "compiler/BoundEventAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "BoundTextAst",
+      "path": "compiler/BoundTextAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "COMPILER_PROVIDERS",
+      "path": "compiler/COMPILER_PROVIDERS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "CompileDiDependencyMetadata",
+      "path": "compiler/CompileDiDependencyMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompileDirectiveMetadata",
+      "path": "compiler/CompileDirectiveMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompileFactoryMetadata",
+      "path": "compiler/CompileFactoryMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompileIdentifierMetadata",
+      "path": "compiler/CompileIdentifierMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompileMetadataWithIdentifier",
+      "path": "compiler/CompileMetadataWithIdentifier-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompileMetadataWithType",
+      "path": "compiler/CompileMetadataWithType-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompilePipeMetadata",
+      "path": "compiler/CompilePipeMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompileProviderMetadata",
+      "path": "compiler/CompileProviderMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompileQueryMetadata",
+      "path": "compiler/CompileQueryMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompileTemplateMetadata",
+      "path": "compiler/CompileTemplateMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompileTokenMetadata",
+      "path": "compiler/CompileTokenMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompileTypeMetadata",
+      "path": "compiler/CompileTypeMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CompilerConfig",
+      "path": "compiler/CompilerConfig-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "DEFAULT_PACKAGE_URL_PROVIDER",
+      "path": "compiler/DEFAULT_PACKAGE_URL_PROVIDER-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "DirectiveAst",
+      "path": "compiler/DirectiveAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "DirectiveResolver",
+      "path": "compiler/DirectiveResolver-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ElementAst",
+      "path": "compiler/ElementAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "EmbeddedTemplateAst",
+      "path": "compiler/EmbeddedTemplateAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "NgContentAst",
+      "path": "compiler/NgContentAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "NormalizedComponentWithViewDirectives",
+      "path": "compiler/NormalizedComponentWithViewDirectives-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "OfflineCompiler",
+      "path": "compiler/OfflineCompiler-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "PLATFORM_DIRECTIVES",
+      "path": "compiler/PLATFORM_DIRECTIVES-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "PLATFORM_PIPES",
+      "path": "compiler/PLATFORM_PIPES-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "PipeResolver",
+      "path": "compiler/PipeResolver-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "PropertyBindingType",
+      "path": "compiler/PropertyBindingType-enum.html",
+      "docType": "enum"
+    },
+  
+    {
+      "title": "ProviderAst",
+      "path": "compiler/ProviderAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ProviderAstType",
+      "path": "compiler/ProviderAstType-enum.html",
+      "docType": "enum"
+    },
+  
+    {
+      "title": "RenderTypes",
+      "path": "compiler/RenderTypes-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "SourceModule",
+      "path": "compiler/SourceModule-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "TEMPLATE_TRANSFORMS",
+      "path": "compiler/TEMPLATE_TRANSFORMS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "TemplateAst",
+      "path": "compiler/TemplateAst-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "TemplateAstVisitor",
+      "path": "compiler/TemplateAstVisitor-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "TextAst",
+      "path": "compiler/TextAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "UrlResolver",
+      "path": "compiler/UrlResolver-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "VariableAst",
+      "path": "compiler/VariableAst-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ViewResolver",
+      "path": "compiler/ViewResolver-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "XHR",
+      "path": "compiler/XHR-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "createOfflineCompileUrlResolver",
+      "path": "compiler/createOfflineCompileUrlResolver-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "templateVisitAll",
+      "path": "compiler/templateVisitAll-function.html",
+      "docType": "function"
+    }
+  ],
+
+  "angular2/core" : [
+    {
+      "title": "APPLICATION_COMMON_PROVIDERS",
+      "path": "core/APPLICATION_COMMON_PROVIDERS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "APP_COMPONENT",
+      "path": "core/APP_COMPONENT-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "APP_ID",
+      "path": "core/APP_ID-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "APP_INITIALIZER",
+      "path": "core/APP_INITIALIZER-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "AbstractProviderError",
+      "path": "core/AbstractProviderError-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "AfterContentChecked",
+      "path": "core/AfterContentChecked-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "AfterContentInit",
+      "path": "core/AfterContentInit-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "AfterViewChecked",
+      "path": "core/AfterViewChecked-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "AfterViewInit",
+      "path": "core/AfterViewInit-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "AppViewManager",
+      "path": "core/AppViewManager-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ApplicationRef",
+      "path": "core/ApplicationRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Attribute",
+      "path": "core/Attribute-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "AttributeFactory",
+      "path": "core/AttributeFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "AttributeMetadata",
+      "path": "core/AttributeMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Binding",
+      "path": "core/Binding-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ChangeDetectionStrategy",
+      "path": "core/ChangeDetectionStrategy-enum.html",
+      "docType": "enum"
+    },
+  
+    {
+      "title": "ChangeDetectorRef",
+      "path": "core/ChangeDetectorRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Class",
+      "path": "core/Class-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "ClassDefinition",
+      "path": "core/ClassDefinition-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "CollectionChangeRecord",
+      "path": "core/CollectionChangeRecord-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Compiler",
+      "path": "core/Compiler-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Component",
+      "path": "core/Component-decorator.html",
+      "docType": "decorator"
+    },
+  
+    {
+      "title": "ComponentDecorator",
+      "path": "core/ComponentDecorator-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ComponentFactory",
+      "path": "core/ComponentFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ComponentMetadata",
+      "path": "core/ComponentMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ComponentRef",
+      "path": "core/ComponentRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ConcreteType",
+      "path": "core/ConcreteType-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ContentChild",
+      "path": "core/ContentChild-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "ContentChildFactory",
+      "path": "core/ContentChildFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ContentChildMetadata",
+      "path": "core/ContentChildMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ContentChildren",
+      "path": "core/ContentChildren-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "ContentChildrenFactory",
+      "path": "core/ContentChildrenFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ContentChildrenMetadata",
+      "path": "core/ContentChildrenMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CyclicDependencyError",
+      "path": "core/CyclicDependencyError-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "DebugElement",
+      "path": "core/DebugElement-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "DebugNode",
+      "path": "core/DebugNode-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Dependency",
+      "path": "core/Dependency-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "DependencyMetadata",
+      "path": "core/DependencyMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Directive",
+      "path": "core/Directive-decorator.html",
+      "docType": "decorator"
+    },
+  
+    {
+      "title": "DirectiveDecorator",
+      "path": "core/DirectiveDecorator-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "DirectiveFactory",
+      "path": "core/DirectiveFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "DirectiveMetadata",
+      "path": "core/DirectiveMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "DoCheck",
+      "path": "core/DoCheck-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "DynamicComponentLoader",
+      "path": "core/DynamicComponentLoader-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ElementRef",
+      "path": "core/ElementRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "EmbeddedViewRef",
+      "path": "core/EmbeddedViewRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "EventEmitter",
+      "path": "core/EventEmitter-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ExceptionHandler",
+      "path": "core/ExceptionHandler-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ExpressionChangedAfterItHasBeenCheckedException",
+      "path": "core/ExpressionChangedAfterItHasBeenCheckedException-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ForwardRefFn",
+      "path": "core/ForwardRefFn-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "GetTestability",
+      "path": "core/GetTestability-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "Host",
+      "path": "core/Host-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "HostBinding",
+      "path": "core/HostBinding-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "HostBindingFactory",
+      "path": "core/HostBindingFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "HostBindingMetadata",
+      "path": "core/HostBindingMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "HostFactory",
+      "path": "core/HostFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "HostListener",
+      "path": "core/HostListener-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "HostListenerFactory",
+      "path": "core/HostListenerFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "HostListenerMetadata",
+      "path": "core/HostListenerMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "HostMetadata",
+      "path": "core/HostMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "HostViewFactoryRef",
+      "path": "core/HostViewFactoryRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "HostViewRef",
+      "path": "core/HostViewRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Inject",
+      "path": "core/Inject-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "InjectFactory",
+      "path": "core/InjectFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "InjectMetadata",
+      "path": "core/InjectMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Injectable",
+      "path": "core/Injectable-decorator.html",
+      "docType": "decorator"
+    },
+  
+    {
+      "title": "InjectableFactory",
+      "path": "core/InjectableFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "InjectableMetadata",
+      "path": "core/InjectableMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Injector",
+      "path": "core/Injector-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Input",
+      "path": "core/Input-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "InputFactory",
+      "path": "core/InputFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "InputMetadata",
+      "path": "core/InputMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "InstantiationError",
+      "path": "core/InstantiationError-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "InvalidProviderError",
+      "path": "core/InvalidProviderError-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "IterableDiffer",
+      "path": "core/IterableDiffer-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "IterableDifferFactory",
+      "path": "core/IterableDifferFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "IterableDiffers",
+      "path": "core/IterableDiffers-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Key",
+      "path": "core/Key-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "KeyValueChangeRecord",
+      "path": "core/KeyValueChangeRecord-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "KeyValueDiffer",
+      "path": "core/KeyValueDiffer-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "KeyValueDifferFactory",
+      "path": "core/KeyValueDifferFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "KeyValueDiffers",
+      "path": "core/KeyValueDiffers-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "NgZone",
+      "path": "core/NgZone-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "NgZoneError",
+      "path": "core/NgZoneError-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "NoAnnotationError",
+      "path": "core/NoAnnotationError-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "NoProviderError",
+      "path": "core/NoProviderError-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "OnChanges",
+      "path": "core/OnChanges-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "OnDestroy",
+      "path": "core/OnDestroy-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "OnInit",
+      "path": "core/OnInit-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "OpaqueToken",
+      "path": "core/OpaqueToken-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Optional",
+      "path": "core/Optional-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "OptionalFactory",
+      "path": "core/OptionalFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "OptionalMetadata",
+      "path": "core/OptionalMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "OutOfBoundsError",
+      "path": "core/OutOfBoundsError-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Output",
+      "path": "core/Output-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "OutputFactory",
+      "path": "core/OutputFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "OutputMetadata",
+      "path": "core/OutputMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "PACKAGE_ROOT_URL",
+      "path": "core/PACKAGE_ROOT_URL-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "PLATFORM_COMMON_PROVIDERS",
+      "path": "core/PLATFORM_COMMON_PROVIDERS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "PLATFORM_DIRECTIVES",
+      "path": "core/PLATFORM_DIRECTIVES-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "PLATFORM_INITIALIZER",
+      "path": "core/PLATFORM_INITIALIZER-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "PLATFORM_PIPES",
+      "path": "core/PLATFORM_PIPES-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "Pipe",
+      "path": "core/Pipe-decorator.html",
+      "docType": "decorator"
+    },
+  
+    {
+      "title": "PipeFactory",
+      "path": "core/PipeFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "PipeMetadata",
+      "path": "core/PipeMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "PipeTransform",
+      "path": "core/PipeTransform-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "PlatformRef",
+      "path": "core/PlatformRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Provider",
+      "path": "core/Provider-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ProviderBuilder",
+      "path": "core/ProviderBuilder-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Query",
+      "path": "core/Query-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "QueryFactory",
+      "path": "core/QueryFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "QueryList",
+      "path": "core/QueryList-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "QueryMetadata",
+      "path": "core/QueryMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ReflectionInfo",
+      "path": "core/ReflectionInfo-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Reflector",
+      "path": "core/Reflector-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "RenderComponentType",
+      "path": "core/RenderComponentType-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Renderer",
+      "path": "core/Renderer-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ResolvedBinding",
+      "path": "core/ResolvedBinding-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ResolvedFactory",
+      "path": "core/ResolvedFactory-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ResolvedProvider",
+      "path": "core/ResolvedProvider-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "RootRenderer",
+      "path": "core/RootRenderer-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Self",
+      "path": "core/Self-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "SelfFactory",
+      "path": "core/SelfFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "SelfMetadata",
+      "path": "core/SelfMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "SimpleChange",
+      "path": "core/SimpleChange-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "SkipSelf",
+      "path": "core/SkipSelf-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "SkipSelfFactory",
+      "path": "core/SkipSelfFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "SkipSelfMetadata",
+      "path": "core/SkipSelfMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "TemplateRef",
+      "path": "core/TemplateRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Testability",
+      "path": "core/Testability-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "TestabilityRegistry",
+      "path": "core/TestabilityRegistry-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "TrackByFn",
+      "path": "core/TrackByFn-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "Type",
+      "path": "core/Type-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "TypeDecorator",
+      "path": "core/TypeDecorator-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ViewChild",
+      "path": "core/ViewChild-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "ViewChildFactory",
+      "path": "core/ViewChildFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ViewChildMetadata",
+      "path": "core/ViewChildMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ViewChildren",
+      "path": "core/ViewChildren-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "ViewChildrenFactory",
+      "path": "core/ViewChildrenFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ViewChildrenMetadata",
+      "path": "core/ViewChildrenMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ViewContainerRef",
+      "path": "core/ViewContainerRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ViewDecorator",
+      "path": "core/ViewDecorator-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ViewEncapsulation",
+      "path": "core/ViewEncapsulation-enum.html",
+      "docType": "enum"
+    },
+  
+    {
+      "title": "ViewFactory",
+      "path": "core/ViewFactory-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ViewMetadata",
+      "path": "core/ViewMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ViewQuery",
+      "path": "core/ViewQuery-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "ViewQueryMetadata",
+      "path": "core/ViewQueryMetadata-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ViewRef",
+      "path": "core/ViewRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "WrappedException",
+      "path": "core/WrappedException-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "WrappedValue",
+      "path": "core/WrappedValue-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "asNativeElements",
+      "path": "core/asNativeElements-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "bind",
+      "path": "core/bind-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "createNgZone",
+      "path": "core/createNgZone-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "enableProdMode",
+      "path": "core/enableProdMode-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "forwardRef",
+      "path": "core/forwardRef-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "platform",
+      "path": "core/platform-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "provide",
+      "path": "core/provide-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "reflector",
+      "path": "core/reflector-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "resolveForwardRef",
+      "path": "core/resolveForwardRef-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "setTestabilityGetter",
+      "path": "core/setTestabilityGetter-function.html",
+      "docType": "function"
+    }
+  ],
+
+  "angular2/http" : [
+    {
+      "title": "BaseRequestOptions",
+      "path": "http/BaseRequestOptions-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "BaseResponseOptions",
+      "path": "http/BaseResponseOptions-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "BrowserXhr",
+      "path": "http/BrowserXhr-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Connection",
+      "path": "http/Connection-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ConnectionBackend",
+      "path": "http/ConnectionBackend-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "HTTP_BINDINGS",
+      "path": "http/HTTP_BINDINGS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "HTTP_PROVIDERS",
+      "path": "http/HTTP_PROVIDERS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "Headers",
+      "path": "http/Headers-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Http",
+      "path": "http/Http-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "JSONPBackend",
+      "path": "http/JSONPBackend-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "JSONPConnection",
+      "path": "http/JSONPConnection-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "JSONP_PROVIDERS",
+      "path": "http/JSONP_PROVIDERS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "JSON_BINDINGS",
+      "path": "http/JSON_BINDINGS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "Jsonp",
+      "path": "http/Jsonp-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ReadyState",
+      "path": "http/ReadyState-enum.html",
+      "docType": "enum"
+    },
+  
+    {
+      "title": "Request",
+      "path": "http/Request-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "RequestMethod",
+      "path": "http/RequestMethod-enum.html",
+      "docType": "enum"
+    },
+  
+    {
+      "title": "RequestOptions",
+      "path": "http/RequestOptions-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "RequestOptionsArgs",
+      "path": "http/RequestOptionsArgs-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "Response",
+      "path": "http/Response-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ResponseOptions",
+      "path": "http/ResponseOptions-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ResponseOptionsArgs",
+      "path": "http/ResponseOptionsArgs-type-alias.html",
+      "docType": "type-alias"
+    },
+  
+    {
+      "title": "ResponseType",
+      "path": "http/ResponseType-enum.html",
+      "docType": "enum"
+    },
+  
+    {
+      "title": "URLSearchParams",
+      "path": "http/URLSearchParams-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "XHRBackend",
+      "path": "http/XHRBackend-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "XHRConnection",
+      "path": "http/XHRConnection-class.html",
+      "docType": "class"
+    }
+  ],
+
+  "angular2/http/testing" : [
+    {
+      "title": "MockBackend",
+      "path": "http/testing/MockBackend-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "MockConnection",
+      "path": "http/testing/MockConnection-class.html",
+      "docType": "class"
+    }
+  ],
+
+  "angular2/instrumentation" : [
+    {
+      "title": "WtfScopeFn",
+      "path": "instrumentation/WtfScopeFn-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "wtfCreateScope",
+      "path": "instrumentation/wtfCreateScope-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "wtfEndTimeRange",
+      "path": "instrumentation/wtfEndTimeRange-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "wtfLeave",
+      "path": "instrumentation/wtfLeave-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "wtfStartTimeRange",
+      "path": "instrumentation/wtfStartTimeRange-var.html",
+      "docType": "var"
+    }
+  ],
+
+  "angular2/platform/browser" : [
+    {
+      "title": "AngularEntrypoint",
+      "path": "platform/browser/AngularEntrypoint-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "BROWSER_APP_PROVIDERS",
+      "path": "platform/browser/BROWSER_APP_PROVIDERS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "BROWSER_PROVIDERS",
+      "path": "platform/browser/BROWSER_PROVIDERS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "BrowserDomAdapter",
+      "path": "platform/browser/BrowserDomAdapter-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "By",
+      "path": "platform/browser/By-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CACHED_TEMPLATE_PROVIDER",
+      "path": "platform/browser/CACHED_TEMPLATE_PROVIDER-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "DOCUMENT",
+      "path": "platform/browser/DOCUMENT-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "ELEMENT_PROBE_PROVIDERS",
+      "path": "platform/browser/ELEMENT_PROBE_PROVIDERS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "ELEMENT_PROBE_PROVIDERS_PROD_MODE",
+      "path": "platform/browser/ELEMENT_PROBE_PROVIDERS_PROD_MODE-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "Title",
+      "path": "platform/browser/Title-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "bootstrap",
+      "path": "platform/browser/bootstrap-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "disableDebugTools",
+      "path": "platform/browser/disableDebugTools-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "enableDebugTools",
+      "path": "platform/browser/enableDebugTools-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "inspectNativeElement",
+      "path": "platform/browser/inspectNativeElement-function.html",
+      "docType": "function"
+    }
+  ],
+
+  "angular2/router" : [
+    {
+      "title": "APP_BASE_HREF",
+      "path": "router/APP_BASE_HREF-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "AsyncRoute",
+      "path": "router/AsyncRoute-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "AuxRoute",
+      "path": "router/AuxRoute-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "CanActivate",
+      "path": "router/CanActivate-decorator.html",
+      "docType": "decorator"
+    },
+  
+    {
+      "title": "CanDeactivate",
+      "path": "router/CanDeactivate-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "CanReuse",
+      "path": "router/CanReuse-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ComponentDefinition",
+      "path": "router/ComponentDefinition-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "ComponentInstruction",
+      "path": "router/ComponentInstruction-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "HashLocationStrategy",
+      "path": "router/HashLocationStrategy-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Instruction",
+      "path": "router/Instruction-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Location",
+      "path": "router/Location-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "LocationStrategy",
+      "path": "router/LocationStrategy-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "OnActivate",
+      "path": "router/OnActivate-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "OnDeactivate",
+      "path": "router/OnDeactivate-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "OnReuse",
+      "path": "router/OnReuse-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "OpaqueToken",
+      "path": "router/OpaqueToken-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "PathLocationStrategy",
+      "path": "router/PathLocationStrategy-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "PlatformLocation",
+      "path": "router/PlatformLocation-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "ROUTER_BINDINGS",
+      "path": "router/ROUTER_BINDINGS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "ROUTER_DIRECTIVES",
+      "path": "router/ROUTER_DIRECTIVES-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "ROUTER_PRIMARY_COMPONENT",
+      "path": "router/ROUTER_PRIMARY_COMPONENT-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "ROUTER_PROVIDERS",
+      "path": "router/ROUTER_PROVIDERS-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "ROUTER_PROVIDERS_COMMON",
+      "path": "router/ROUTER_PROVIDERS_COMMON-let.html",
+      "docType": "let"
+    },
+  
+    {
+      "title": "Redirect",
+      "path": "router/Redirect-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Route",
+      "path": "router/Route-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "RouteConfig",
+      "path": "router/RouteConfig-decorator.html",
+      "docType": "decorator"
+    },
+  
+    {
+      "title": "RouteData",
+      "path": "router/RouteData-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "RouteDefinition",
+      "path": "router/RouteDefinition-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "RouteParams",
+      "path": "router/RouteParams-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "RouteRegistry",
+      "path": "router/RouteRegistry-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "Router",
+      "path": "router/Router-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "RouterLink",
+      "path": "router/RouterLink-directive.html",
+      "docType": "directive"
+    },
+  
+    {
+      "title": "RouterOutlet",
+      "path": "router/RouterOutlet-directive.html",
+      "docType": "directive"
+    }
+  ],
+
+  "angular2/router/testing" : [
+    {
+      "title": "MockLocationStrategy",
+      "path": "router/testing/MockLocationStrategy-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "SpyLocation",
+      "path": "router/testing/SpyLocation-class.html",
+      "docType": "class"
+    }
+  ],
+
+  "angular2/upgrade" : [
+    {
+      "title": "UpgradeAdapter",
+      "path": "upgrade/UpgradeAdapter-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "UpgradeAdapterRef",
+      "path": "upgrade/UpgradeAdapterRef-class.html",
+      "docType": "class"
+    }
+  ],
+
+  "angular2/testing" : [
+    {
+      "title": "AnyTestFn",
+      "path": "testing/AnyTestFn-type-alias.html",
+      "docType": "type-alias"
+    },
+  
+    {
+      "title": "AsyncTestFn",
+      "path": "testing/AsyncTestFn-type-alias.html",
+      "docType": "type-alias"
+    },
+  
+    {
+      "title": "ComponentFixture",
+      "path": "testing/ComponentFixture-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "FunctionWithParamTokens",
+      "path": "testing/FunctionWithParamTokens-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "InjectSetupWrapper",
+      "path": "testing/InjectSetupWrapper-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "MockApplicationRef",
+      "path": "testing/MockApplicationRef-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "MockDirectiveResolver",
+      "path": "testing/MockDirectiveResolver-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "MockNgZone",
+      "path": "testing/MockNgZone-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "MockViewResolver",
+      "path": "testing/MockViewResolver-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "MockXHR",
+      "path": "testing/MockXHR-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "NgMatchers",
+      "path": "testing/NgMatchers-interface.html",
+      "docType": "interface"
+    },
+  
+    {
+      "title": "SyncTestFn",
+      "path": "testing/SyncTestFn-type-alias.html",
+      "docType": "type-alias"
+    },
+  
+    {
+      "title": "TestComponentBuilder",
+      "path": "testing/TestComponentBuilder-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "TestInjector",
+      "path": "testing/TestInjector-class.html",
+      "docType": "class"
+    },
+  
+    {
+      "title": "afterEach",
+      "path": "testing/afterEach-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "beforeEach",
+      "path": "testing/beforeEach-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "beforeEachProviders",
+      "path": "testing/beforeEachProviders-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "clearPendingTimers",
+      "path": "testing/clearPendingTimers-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "ddescribe",
+      "path": "testing/ddescribe-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "describe",
+      "path": "testing/describe-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "expect",
+      "path": "testing/expect-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "fakeAsync",
+      "path": "testing/fakeAsync-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "fdescribe",
+      "path": "testing/fdescribe-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "fit",
+      "path": "testing/fit-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "flushMicrotasks",
+      "path": "testing/flushMicrotasks-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "getTestInjector",
+      "path": "testing/getTestInjector-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "iit",
+      "path": "testing/iit-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "inject",
+      "path": "testing/inject-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "injectAsync",
+      "path": "testing/injectAsync-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "it",
+      "path": "testing/it-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "resetBaseTestProviders",
+      "path": "testing/resetBaseTestProviders-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "setBaseTestProviders",
+      "path": "testing/setBaseTestProviders-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "tick",
+      "path": "testing/tick-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "withProviders",
+      "path": "testing/withProviders-function.html",
+      "docType": "function"
+    },
+  
+    {
+      "title": "xdescribe",
+      "path": "testing/xdescribe-var.html",
+      "docType": "var"
+    },
+  
+    {
+      "title": "xit",
+      "path": "testing/xit-function.html",
+      "docType": "function"
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app/app.component.ts]" value="import {Component} from 'angular2/core';
+import {HighlightDirective} from './highlight.directive';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: 'app/app.component.html',
+  directives: [HighlightDirective]
+})
+
+export class AppComponent { }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/highlight.directive.ts]" value="import {Directive, ElementRef, Input} from 'angular2/core';
+
+@Directive({
+  selector: '[myHighlight]',
+  host: {
+    '(mouseenter)': 'onMouseEnter()',
+    '(mouseleave)': 'onMouseLeave()'
+  }
+})
+
+export class HighlightDirective {
+  
+  private _defaultColor = 'red';
+  private _el:HTMLElement;
+  /*
+  @Input() myHighlight: string;
+  */
+
+  @Input() set defaultColor(colorName:string){
+    this._defaultColor = colorName || this._defaultColor;
+  }
+
+  @Input('myHighlight') highlightColor: string;
+
+  constructor(el: ElementRef) { this._el = el.nativeElement; }
+
+  onMouseEnter() { this._highlight(this.highlightColor || this._defaultColor); }
+  onMouseLeave() { this._highlight(null); }
+
+  private _highlight(color:string) {
+    this._el.style.backgroundColor = color;
+  }
+}
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/main.ts]" value="import {bootstrap}    from 'angular2/platform/browser';
+import {AppComponent} from './app.component';
+
+bootstrap(AppComponent);
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[styles.css]" value="/* Master Styles */
+h1 {
+  color: #369; 
+  font-family: Arial, Helvetica, sans-serif;   
+  font-size: 250%;
+}
+h2, h3 { 
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;   
+  font-weight: lighter;
+}
+body { 
+  margin: 2em; 
+}
+body, input[text], button { 
+  color: #888; 
+  font-family: Cambria, Georgia; 
+}
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa; 
+  cursor: auto;
+}
+
+/* Navigation link styles */
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.router-link-active {
+  color: #039be5;
+}
+
+/* items class */
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+
+.items li.selected:hover {
+  background-color: #BBD8DC;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+/* everywhere else */
+* { 
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/app.component.html]" value="<h1>My First Attribute Directive</h1>
+<h4>Pick a highlight color</h4>
+<div>
+  <input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color='lightgreen'&quot;>Green
+  <input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color='yellow'&quot;>Yellow
+  <input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color='cyan'&quot;>Cyan
+</div>
+
+<p [myHighlight]=&quot;color&quot;>Highlight me!</p>
+
+<p [myHighlight]=&quot;color&quot; [defaultColor]=&quot;'violet'&quot;>
+  Highlight me too!
+</p>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+  <head>
+    <title>Attribute Directives</title>
+    <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+    <link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;>
+
+    <!-- IE required polyfills, in this exact order -->
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system-polyfills.js&quot;></script>
+    <script src=&quot;https://npmcdn.com/angular2@2.0.0-beta.15/es6/dev/src/testing/shims_for_IE.js&quot;></script>
+
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.15/angular2-polyfills.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system.js&quot;></script>
+    <script src=&quot;https://npmcdn.com/typescript@1.8.10/lib/typescript.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.15/Rx.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.15/angular2.dev.js&quot;></script>
+    <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+
+  <body>
+    <my-app>loading...</my-app>
+  </body>
+
+</html>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="attribute"><input type="hidden" name="tags[3]" value="directive"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - Attribute Directive"></form><script>document.getElementById("mainForm").submit();</script></body></html>

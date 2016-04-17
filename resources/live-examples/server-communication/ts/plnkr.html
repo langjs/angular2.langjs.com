@@ -1,0 +1,542 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app/hero-data.ts]" value="export class HeroData {
+  createDb() {
+    let heroes = [
+      { &quot;id&quot;: &quot;1&quot;, &quot;name&quot;: &quot;Windstorm&quot; },
+      { &quot;id&quot;: &quot;2&quot;, &quot;name&quot;: &quot;Bombasto&quot; },
+      { &quot;id&quot;: &quot;3&quot;, &quot;name&quot;: &quot;Magneta&quot; },
+      { &quot;id&quot;: &quot;4&quot;, &quot;name&quot;: &quot;Tornado&quot; }
+    ];
+    return {heroes};
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/main.ts]" value="import { bootstrap }      from 'angular2/platform/browser';
+import { HTTP_PROVIDERS } from 'angular2/http';
+
+// Add all operators to Observable
+import 'rxjs/Rx';
+
+import { WikiComponent }      from './wiki/wiki.component';
+import { WikiSmartComponent } from './wiki/wiki-smart.component';
+import { TohComponent }       from './toh/toh.component';
+
+bootstrap(WikiComponent);
+bootstrap(WikiSmartComponent);
+bootstrap(TohComponent, [HTTP_PROVIDERS]);
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/toh/hero-list.component.ts]" value="import {Component, OnInit} from 'angular2/core';
+import {Hero}              from './hero';
+import {HeroService}       from './hero.service';
+
+@Component({
+  selector: 'hero-list',
+  templateUrl: 'app/toh/hero-list.component.html',
+  styles: ['.error {color:red;}']
+})
+export class HeroListComponent implements OnInit {
+
+  constructor (private _heroService: HeroService) {}
+
+  errorMessage: string;
+  heroes:Hero[];
+
+  ngOnInit() { this.getHeroes(); }
+
+  getHeroes() {
+    this._heroService.getHeroes()
+                     .subscribe(
+                       heroes => this.heroes = heroes,
+                       error =>  this.errorMessage = <any>error);
+  }
+
+  addHero (name: string) {
+    if (!name) {return;}
+    this._heroService.addHero(name)
+                     .subscribe(
+                       hero  => this.heroes.push(hero),
+                       error =>  this.errorMessage = <any>error);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/toh/hero.service.ts]" value="
+import {Injectable}     from 'angular2/core';
+import {Http, Response} from 'angular2/http';
+import {Headers, RequestOptions} from 'angular2/http';
+import {Hero}           from './hero';
+import {Observable}     from 'rxjs/Observable';
+
+@Injectable()
+export class HeroService {
+  constructor (private http: Http) {}
+
+  /*
+  private _heroesUrl = 'app/heroes.json'; // URL to JSON file
+  */
+
+  private _heroesUrl = 'app/heroes';  // URL to web api
+
+  getHeroes (): Observable<Hero[]> {
+    return this.http.get(this._heroesUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  addHero (name: string): Observable<Hero>  {
+
+    let body = JSON.stringify({ name });
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this._heroesUrl, body, options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+
+  private extractData(res: Response) {
+    if (res.status < 200 || res.status >= 300) {
+      throw new Error('Bad response status: ' + res.status);
+    }
+    let body = res.json();
+    return body.data || { };
+  }
+
+  private handleError (error: any) {
+    // In a real world app, we might send the error to remote logging infrastructure
+    let errMsg = error.message || 'Server error';
+    console.error(errMsg); // log to console instead
+    return Observable.throw(errMsg);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/toh/hero.ts]" value="export class Hero {
+  constructor(
+    public id:number,
+    public name:string) { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/toh/toh.component.2.ts]" value="
+import { Component }         from 'angular2/core';
+import { HTTP_PROVIDERS }    from 'angular2/http';
+
+import { HeroListComponent } from './hero-list.component';
+import { HeroService }       from './hero.service';
+
+import { provide }           from 'angular2/core';
+import { XHRBackend }        from 'angular2/http';
+
+// in-memory web api imports
+import { InMemoryBackendService,
+        SEED_DATA }         from 'a2-in-memory-web-api/core';
+import { HeroData }          from '../hero-data';
+
+@Component({
+  selector: 'my-toh',
+  template: `
+  <h1>Tour of Heroes</h1>
+  <hero-list></hero-list>
+  `,
+  directives: [HeroListComponent],
+  providers:  [
+    HTTP_PROVIDERS,
+    HeroService,
+    // in-memory web api providers
+    provide(XHRBackend, { useClass: InMemoryBackendService }), // in-mem server
+    provide(SEED_DATA,  { useClass: HeroData }) // in-mem server data
+  ]
+})
+export class TohComponent { }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/toh/toh.component.ts]" value="
+import { Component }         from 'angular2/core';
+import { HTTP_PROVIDERS }    from 'angular2/http';
+
+import { HeroListComponent } from './hero-list.component';
+import { HeroService }       from './hero.service';
+
+import { provide }           from 'angular2/core';
+import { XHRBackend }        from 'angular2/http';
+
+// in-memory web api imports
+import { InMemoryBackendService,
+        SEED_DATA }         from 'a2-in-memory-web-api/core';
+import { HeroData }          from '../hero-data';
+
+@Component({
+  selector: 'my-toh',
+  template: `
+  <h1>Tour of Heroes</h1>
+  <hero-list></hero-list>
+  `,
+  directives: [HeroListComponent],
+  providers:  [
+    HTTP_PROVIDERS,
+    HeroService,
+    // in-memory web api providers
+    provide(XHRBackend, { useClass: InMemoryBackendService }), // in-mem server
+    provide(SEED_DATA,  { useClass: HeroData }) // in-mem server data
+  ]
+})
+export class TohComponent { }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/wiki/wiki-smart.component.ts]" value="import {Component}        from 'angular2/core';
+import {JSONP_PROVIDERS}  from 'angular2/http';
+import {Observable}       from 'rxjs/Observable';
+import {Subject}          from 'rxjs/Subject';
+
+import {WikipediaService} from './wikipedia.service';
+
+@Component({
+  selector: 'my-wiki-smart',
+  template: `
+    <h1>Smarter Wikipedia Demo</h1>
+    <p><i>Fetches when typing stops</i></p>
+
+    <input #term (keyup)=&quot;search(term.value)&quot;/>
+
+    <ul>
+      <li *ngFor=&quot;#item of items | async&quot;>{{item}}</li>
+    </ul>
+  `,
+  providers:[JSONP_PROVIDERS, WikipediaService]
+})
+export class WikiSmartComponent {
+
+  constructor (private _wikipediaService: WikipediaService) { }
+
+  private _searchTermStream = new Subject<string>();
+
+  search(term:string) { this._searchTermStream.next(term); }
+
+  items:Observable<string[]> = this._searchTermStream
+    .debounceTime(300)
+    .distinctUntilChanged()
+    .switchMap((term:string) => this._wikipediaService.search(term));
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/wiki/wiki.component.ts]" value="import {Component}        from 'angular2/core';
+import {JSONP_PROVIDERS}  from 'angular2/http';
+import {Observable}       from 'rxjs/Observable';
+
+import {WikipediaService} from './wikipedia.service';
+
+@Component({
+  selector: 'my-wiki',
+  template: `
+    <h1>Wikipedia Demo</h1>
+    <p><i>Fetches after each keystroke</i></p>
+
+    <input #term (keyup)=&quot;search(term.value)&quot;/>
+    
+    <ul>
+      <li *ngFor=&quot;#item of items | async&quot;>{{item}}</li>
+    </ul>
+  `,
+  providers:[JSONP_PROVIDERS, WikipediaService]
+})
+export class WikiComponent {
+
+  constructor (private _wikipediaService: WikipediaService) {}
+
+  items: Observable<string[]>;
+
+  search (term: string) {
+    this.items = this._wikipediaService.search(term);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/wiki/wikipedia.service.ts]" value="import {Injectable} from 'angular2/core';
+import {Jsonp, URLSearchParams} from 'angular2/http';
+
+@Injectable()
+export class WikipediaService {
+  constructor(private jsonp: Jsonp) {}
+
+  search (term: string) {
+
+    let wikiUrl = 'http://en.wikipedia.org/w/api.php';
+
+    var params = new URLSearchParams();
+    params.set('search', term); // the user's search value
+    params.set('action', 'opensearch');
+    params.set('format', 'json');
+    params.set('callback', 'JSONP_CALLBACK');
+
+    // TODO: Add error handling
+    return this.jsonp
+               .get(wikiUrl, { search: params })
+               .map(request => <string[]> request.json()[1]);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[styles.css]" value="/* Master Styles */
+h1 {
+  color: #369; 
+  font-family: Arial, Helvetica, sans-serif;   
+  font-size: 250%;
+}
+h2, h3 { 
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;   
+  font-weight: lighter;
+}
+body { 
+  margin: 2em; 
+}
+body, input[text], button { 
+  color: #888; 
+  font-family: Cambria, Georgia; 
+}
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa; 
+  cursor: auto;
+}
+
+/* Navigation link styles */
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.router-link-active {
+  color: #039be5;
+}
+
+/* items class */
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+
+.items li.selected:hover {
+  background-color: #BBD8DC;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+/* everywhere else */
+* { 
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/toh/hero-list.component.html]" value="<h3>Heroes:</h3>
+<ul>
+  <li *ngFor=&quot;#hero of heroes&quot;>
+    {{ hero.name }}
+  </li>
+</ul>
+New Hero:
+<input #newHero />
+<button (click)=&quot;addHero(newHero.value); newHero.value=''&quot;>
+  Add Hero
+</button>
+<div class=&quot;error&quot; *ngIf=&quot;errorMessage&quot;>{{errorMessage}}</div>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular 2 Http Demo</title>
+    <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+    <link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;>
+
+    <!-- IE required polyfills, in this exact order -->
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system-polyfills.js&quot;></script>
+    <script src=&quot;https://npmcdn.com/angular2@2.0.0-beta.15/es6/dev/src/testing/shims_for_IE.js&quot;></script>
+
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.15/angular2-polyfills.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system.js&quot;></script>
+    <script src=&quot;https://npmcdn.com/typescript@1.8.10/lib/typescript.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.15/Rx.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.15/angular2.dev.js&quot;></script>
+
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.15/http.dev.js&quot;></script>
+
+    <script src=&quot;https://npmcdn.com/a2-in-memory-web-api/web-api.js&quot;></script>
+    <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+
+  </head>
+
+  <body>
+    <my-toh>ToH Loading...</my-toh>
+    <my-wiki>Wiki Loading...</my-wiki>
+    <my-wiki-smart>WikiSmart Loading...</my-wiki-smart>
+  </body>
+
+</html>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[app/heroes.json]" value="{
+  &quot;data&quot;: [
+    { &quot;id&quot;: &quot;1&quot;, &quot;name&quot;: &quot;Windstorm&quot; },
+    { &quot;id&quot;: &quot;2&quot;, &quot;name&quot;: &quot;Bombasto&quot; },
+    { &quot;id&quot;: &quot;3&quot;, &quot;name&quot;: &quot;Magneta&quot; },
+    { &quot;id&quot;: &quot;4&quot;, &quot;name&quot;: &quot;Tornado&quot; }
+  ]
+}
+"><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="http"><input type="hidden" name="tags[3]" value="jsonp"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - Http"></form><script>document.getElementById("mainForm").submit();</script></body></html>

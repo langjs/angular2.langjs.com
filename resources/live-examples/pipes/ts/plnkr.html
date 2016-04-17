@@ -1,0 +1,679 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app/app.component.ts]" value="import {Component} from 'angular2/core';
+import {HTTP_PROVIDERS}    from 'angular2/http';
+
+import {FlyingHeroesComponent,
+        FlyingHeroesImpureComponent} from './flying-heroes.component';
+import {HeroAsyncMessageComponent} from './hero-async-message.component';
+import {HeroBirthday} from './hero-birthday1.component';
+import {HeroBirthday2} from './hero-birthday2.component';
+import {HeroListComponent} from './hero-list.component';
+import {PowerBooster} from './power-booster.component';
+import {PowerBoostCalculator} from './power-boost-calculator.component';
+import {RandomPipeComponent} from './random-pipe.component';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: 'app/app.component.html',
+  directives:[
+    FlyingHeroesComponent, FlyingHeroesImpureComponent,
+    HeroAsyncMessageComponent,
+    HeroBirthday,
+    HeroBirthday2,
+    HeroListComponent,
+    PowerBooster, PowerBoostCalculator,
+    RandomPipeComponent
+  ],
+  providers:[HTTP_PROVIDERS]
+})
+export class AppComponent {
+  birthday = new Date(1988,3,15); // April 15, 1988
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/exponential-strength.pipe.ts]" value="import {Pipe, PipeTransform} from 'angular2/core';
+/*
+ * Raise the value exponentially
+ * Takes an exponent argument that defaults to 1.
+ * Usage:
+ *   value | exponentialStrength:exponent
+ * Example:
+ *   {{ 2 |  exponentialStrength:10}}
+ *   formats to: 1024
+*/
+@Pipe({name: 'exponentialStrength'})
+export class ExponentialStrengthPipe implements PipeTransform {
+  transform(value:number, [exponent]) : number {
+    var exp = parseFloat(exponent);
+    return Math.pow(value, isNaN(exp) ? 1 : exp);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/fetch-json.pipe.ts]" value="import {Pipe, PipeTransform} from 'angular2/core';
+import {Http}                from 'angular2/http';
+
+@Pipe({
+  name: 'fetch',
+  pure: false
+})
+export class FetchJsonPipe  implements PipeTransform{
+  private fetched:any = null;
+  private prevUrl = '';
+
+  constructor(private _http: Http) { }
+
+  transform(url:string):any {
+    if (url !== this.prevUrl) {
+      this.prevUrl = url;
+      this.fetched = null;
+      this._http.get(url)
+        .map( result => result.json() )
+        .subscribe( result => this.fetched = result )
+    }
+
+    return this.fetched;
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/flying-heroes.component.ts]" value="import {Component}              from 'angular2/core';
+import {FlyingHeroesPipe,
+        FlyingHeroesImpurePipe} from './flying-heroes.pipe';
+import {HEROES}                 from './heroes';
+
+@Component({
+  selector: 'flying-heroes',
+  templateUrl: 'app/flying-heroes.component.html',
+  styles: ['#flyers, #all {font-style: italic}'],
+  pipes: [FlyingHeroesPipe]
+})
+export class FlyingHeroesComponent {
+  heroes:any[] = [];
+  canFly = true;
+  mutate = true;
+  title = 'Flying Heroes (pure pipe)';
+
+  constructor() { this.reset(); }
+
+  addHero(name:string) {
+    name = name.trim();
+    if (!name) { return; }
+    let hero = {name, canFly: this.canFly};
+    if (this.mutate) {
+    // Pure pipe won't update display because heroes array reference is unchanged
+    // Impure pipe will display
+    this.heroes.push(hero)
+    } else {
+      // Pipe updates display because heroes array is a new object
+      this.heroes = this.heroes.concat(hero);
+    }
+  }
+
+  reset() { this.heroes = HEROES.slice(); }
+}
+
+////// Identical except for impure pipe //////
+@Component({
+  selector: 'flying-heroes-impure',
+  templateUrl: 'app/flying-heroes.component.html',
+  styles: ['.flyers, .all {font-style: italic}'],
+  pipes: [FlyingHeroesImpurePipe]
+})
+export class FlyingHeroesImpureComponent extends FlyingHeroesComponent {
+  title = 'Flying Heroes (impure pipe)';
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/flying-heroes.pipe.ts]" value="import {Flyer} from './heroes';
+import {Pipe, PipeTransform} from 'angular2/core';
+
+@Pipe({ name: 'flyingHeroes' })
+export class FlyingHeroesPipe implements PipeTransform {
+  transform(allHeroes:Flyer[]) {
+    return allHeroes.filter(hero => hero.canFly);
+  }
+}
+
+/////// Identical except for the pure flag
+@Pipe({
+  name: 'flyingHeroes',
+  pure: false
+})
+export class FlyingHeroesImpurePipe extends FlyingHeroesPipe {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/hero-async-message.component.ts]" value="import {Component} from 'angular2/core';
+import {Observable} from 'rxjs/Rx';
+
+// Initial view: &quot;Message: &quot;
+// After 500ms: Message: You are my Hero!&quot;
+
+@Component({
+  selector: 'hero-message',
+  template: `
+    <h2>Async Hero Message and AsyncPipe</h2>
+
+    <p>Message: {{ message$ | async }}</p>
+
+    <button (click)=&quot;resend()&quot;>Resend</button>`,
+})
+export class HeroAsyncMessageComponent {
+  message$:Observable<string>;
+
+  constructor() { this.resend(); }
+
+  resend() {
+    this.message$ = Observable.interval(500)
+      .map(i => this.messages[i])
+      .take(this.messages.length);
+  }
+
+  private messages = [
+    'You are my hero!',
+    'You are the best hero!',
+    'Will you be my hero?'
+  ];
+}
+
+// Alternative message$ formula:
+// this.message$ = Observable.fromArray(this.messages)
+//   .map(message => Observable.timer(500).map(() => message))
+//   .concatAll();
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/hero-birthday1.component.ts]" value="// Version #1
+import {Component} from 'angular2/core'
+
+@Component({
+  selector: 'hero-birthday',
+  template: `<p>The hero's birthday is {{ birthday | date }}</p>`
+})
+export class HeroBirthday {
+  birthday = new Date(1988,3,15); // April 15, 1988
+}
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/hero-birthday2.component.ts]" value="// Version #2
+import {Component} from 'angular2/core'
+
+@Component({
+  selector: 'hero-birthday2',
+  template: `
+    <p>The hero's birthday is {{ birthday | date:format }}</p>
+    <button (click)=&quot;toggleFormat()&quot;>Toggle Format</button>
+  `
+})
+export class HeroBirthday2 {
+  birthday = new Date(1988,3,15); // April 15, 1988
+  toggle = true; // start with true == shortDate
+
+  get format()   { return this.toggle ? 'shortDate' : 'fullDate'}
+  toggleFormat() { this.toggle = !this.toggle; }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/hero-list.component.ts]" value="import {Component} from 'angular2/core';
+import {FetchJsonPipe} from './fetch-json.pipe';
+
+@Component({
+  selector: 'hero-list',
+  template: `
+    <h2>Heroes from JSON File</h2>
+
+    <div *ngFor=&quot;#hero of ('heroes.json' | fetch) &quot;>
+      {{hero.name}}
+    </div>
+
+    <p>Heroes as JSON:
+    {{'heroes.json' | fetch | json}}
+    </p>
+  `,
+  pipes: [FetchJsonPipe]
+})
+export class HeroListComponent { }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/heroes.ts]" value="export interface Flyer { canFly: boolean }
+export const HEROES =  [
+  {&quot;name&quot;: &quot;Windstorm&quot;, &quot;canFly&quot;: true},
+  {&quot;name&quot;: &quot;Bombasto&quot;,  &quot;canFly&quot;: false},
+  {&quot;name&quot;: &quot;Magneto&quot;,   &quot;canFly&quot;: false},
+  {&quot;name&quot;: &quot;Tornado&quot;,   &quot;canFly&quot;: true}
+];
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/main.ts]" value="import {bootstrap}    from 'angular2/platform/browser';
+import 'rxjs/Rx';
+
+import {AppComponent} from './app.component';
+
+bootstrap(AppComponent);
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/power-boost-calculator.component.ts]" value="import {Component} from 'angular2/core';
+import {ExponentialStrengthPipe} from './exponential-strength.pipe';
+
+@Component({
+  selector: 'power-boost-calculator',
+  template: `
+    <h2>Power Boost Calculator</h2>
+    <div>Normal power: <input [(ngModel)]=&quot;power&quot;></div>
+    <div>Boost factor: <input [(ngModel)]=&quot;factor&quot;></div>
+    <p>
+      Super Hero Power: {{power | exponentialStrength: factor}}
+    </p>
+  `,
+  pipes: [ExponentialStrengthPipe]
+})
+export class PowerBoostCalculator {
+  power = 5;
+  factor = 1;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/power-booster.component.ts]" value="import {Component} from 'angular2/core';
+import {ExponentialStrengthPipe} from './exponential-strength.pipe';
+
+@Component({
+  selector: 'power-booster',
+  template: `
+    <h2>Power Booster</h2>
+    <p>
+      Super power boost: {{2 | exponentialStrength: 10}}
+    </p>
+  `,
+  pipes: [ExponentialStrengthPipe]
+})
+export class PowerBooster { }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/random-pipe.component.ts]" value="import {Component} from 'angular2/core';
+import {Pipe, PipeTransform} from 'angular2/core';
+
+// Pure pipe
+@Pipe({ name: 'randomizer' })
+export class RandomizerPipe implements PipeTransform {
+  // Impure function
+  transform() { return Math.random() * 10 ;}
+}
+
+@Component({
+  selector: 'random-pipe',
+  template: `
+  <h2>Random Pipe (pure pipe/impure function)</h2>
+  <input #box (input)=&quot;0&quot;>
+  <p>Input value: {{box.value}}</p>
+  <p>Random pipe output: {{box.value | randomizer}}</p>
+  `,
+  pipes: [RandomizerPipe]
+})
+export class RandomPipeComponent {
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[styles.css]" value="/* Master Styles */
+h1 {
+  color: #369; 
+  font-family: Arial, Helvetica, sans-serif;   
+  font-size: 250%;
+}
+h2, h3 { 
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;   
+  font-weight: lighter;
+}
+body { 
+  margin: 2em; 
+}
+body, input[text], button { 
+  color: #888; 
+  font-family: Cambria, Georgia; 
+}
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa; 
+  cursor: auto;
+}
+
+/* Navigation link styles */
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.router-link-active {
+  color: #039be5;
+}
+
+/* items class */
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+
+.items li.selected:hover {
+  background-color: #BBD8DC;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+/* everywhere else */
+* { 
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/app.component.html]" value="<a id=&quot;toc&quot;></a>
+<h1>Pipes</h1>
+<a href=&quot;#happy-birthday1&quot;>Happy Birthday v.1</a><br>
+<a href=&quot;#birthday-date-pipe&quot;>Birthday DatePipe</a><br>
+<a href=&quot;#happy-birthday2&quot;>Happy Birthday v.2</a><br>
+<a href=&quot;#birthday-pipe-chaining&quot;>Birthday Pipe Chaining</a><br>
+<a href=&quot;#power-booster&quot;>Power Booster custom pipe</a><br>
+<a href=&quot;#power-boost-calc&quot;>Power Boost Calculator custom pipe with params</a><br>
+<a href=&quot;#flying-heroes&quot;>Flying Heroes filter pipe (pure)</a><br>
+<a href=&quot;#flying-heroes-impure&quot;>Flying Heroes filter pipe (impure)</a><br>
+<a href=&quot;#hero-message&quot;>Async Hero Message and AsyncPipe</a><br>
+<a href=&quot;#hero-list&quot;>Hero List with caching FetchJsonPipe</a><br>
+<a href=&quot;#random-pipe&quot;>Random Pipe (pure pipe / impure function)</a><br>
+
+
+<hr>
+<a id=&quot;happy-birthday1&quot;></a>
+<h2>Hero Birthday v.1</h2>
+<hero-birthday></hero-birthday>
+
+<hr>
+<a id=&quot;birthday-date-pipe&quot;></a>
+<h2>Birthday DatePipe</h2>
+<p>The hero's birthday is {{ birthday | date }}</p>
+
+<p>The hero's birthday is {{ birthday | date:&quot;MM/dd/yy&quot; }} </p>
+
+<hr>
+<a id=&quot;happy-birthday2&quot;></a>
+<h2>Hero Birthday v.2</h2>
+<hero-birthday2></hero-birthday2>
+
+<hr>
+<a id=&quot;birthday-pipe-chaining&quot;></a>
+<h2>Birthday Pipe Chaining</h2>
+<p>
+  The chained hero's birthday is
+  {{ birthday | date | uppercase}}
+</p>
+
+<p>
+  The chained hero's birthday is
+  {{  birthday | date:'fullDate' | uppercase}}
+</p>
+<p>
+  The chained hero's birthday is
+  {{ ( birthday | date:'fullDate' ) | uppercase}}
+</p>
+<hr>
+<a id=&quot;power-booster&quot;></a>
+<power-booster></power-booster>
+
+<hr>
+<a id=&quot;power-boost-calc&quot;></a>
+<power-boost-calculator>loading</power-boost-calculator>
+
+<hr>
+<a id=&quot;flying-heroes&quot;></a>
+<flying-heroes></flying-heroes>
+
+<hr>
+<a id=&quot;flying-heroes-impure&quot;></a>
+<flying-heroes-impure></flying-heroes-impure>
+
+<hr>
+<a id=&quot;hero-message&quot;></a>
+<!-- async examples at the top so can see them in action -->
+<hero-message></hero-message>
+
+<hr>
+<a id=&quot;hero-list&quot;></a>
+<hero-list></hero-list>
+
+<hr>
+<a id=&quot;random-pipe&quot;></a>
+<random-pipe></random-pipe>
+
+<div style=&quot;margin-top:12em;&quot;></div>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[app/flying-heroes.component.html]" value="<h2>{{title}}</h2>
+<p>
+New hero:
+  <input type=&quot;text&quot; #box
+          (keyup.enter)=&quot;addHero(box.value); box.value=''&quot;
+          placeholder=&quot;hero name&quot;>
+  <input id=&quot;can-fly&quot; type=&quot;checkbox&quot; [(ngModel)]=&quot;canFly&quot;> can fly
+</p>
+<p>
+  <input id=&quot;mutate&quot; type=&quot;checkbox&quot; [(ngModel)]=&quot;mutate&quot;>Mutate array
+  <button (click)=&quot;reset()&quot;>Reset</button>
+</p>
+
+<h4>Heroes who fly (piped)</h4>
+<div id=&quot;flyers&quot;>
+  <div *ngFor=&quot;#hero of (heroes | flyingHeroes)&quot;>
+    {{hero.name}}
+  </div>
+</div>
+
+<h4>All Heroes (no pipe)</h4>
+<div id=&quot;all&quot;>
+  <div *ngFor=&quot;#hero of heroes&quot;>
+    {{hero.name}}
+  </div>
+
+</div>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pipes</title>
+    <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+    <link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;>
+
+    <!-- IE required polyfills, in this exact order -->
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system-polyfills.js&quot;></script>
+    <script src=&quot;https://npmcdn.com/angular2@2.0.0-beta.15/es6/dev/src/testing/shims_for_IE.js&quot;></script>
+
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.15/angular2-polyfills.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system.js&quot;></script>
+    <script src=&quot;https://npmcdn.com/typescript@1.8.10/lib/typescript.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.15/Rx.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.15/angular2.dev.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.15/http.dev.js&quot;></script>
+    <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+
+  <body>
+    <my-app>my-app loading ...</my-app>
+  </body>
+
+</html>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[heroes.json]" value="[
+  {&quot;name&quot;: &quot;Windstorm&quot;, &quot;canFly&quot;: true},
+  {&quot;name&quot;: &quot;Bombasto&quot;,  &quot;canFly&quot;: false},
+  {&quot;name&quot;: &quot;Magneto&quot;,   &quot;canFly&quot;: false},
+  {&quot;name&quot;: &quot;Tornado&quot;,   &quot;canFly&quot;: true}
+]
+"><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="pipe"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - Pipes"></form><script>document.getElementById("mainForm").submit();</script></body></html>
